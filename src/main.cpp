@@ -1,8 +1,15 @@
 #include <iostream>
 #include <string>
+#include <thread>
+#include <vector>
 using namespace std;
+#include <Windows.h>
+#include <stdio.h>
 
 wstring tetromino[7]; // array of wide strings -- tetris pieces
+// screen
+int nScreenWidth = 80;
+int nScreenHeight = 30;
 // game board
 int nFieldWidth = 12;
 int nFieldHeight = 18;
@@ -40,4 +47,13 @@ int main() {
       // either set value to 9 for border or 0 for empty space
       pField[y * nFieldWidth + x] =
           (x == 0 || x == nFieldWidth - 1 || y == nFieldHeight - 1) ? 9 : 0;
+
+  // setting up display on the command line with screen with and height
+  wchar_t *screen = new wchar_t[nScreenWidth * nScreenHeight];
+  for (int i = 0; i < nScreenWidth * nScreenHeight; i++)
+    screen[i] = L' ';
+  HANDLE hConsole = CreateConsoleScreenBuffer(
+      GENERIC_READ | GENERIC_WRITE, 0, NULL, CONSOLE_TEXTMODE_BUFFER, NULL);
+  SetConsoloeActiveSCreenBuffer(hConsole);
+  DWORD dwBytesWritten = 0;
 }
