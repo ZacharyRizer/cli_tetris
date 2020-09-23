@@ -1,0 +1,7 @@
+[
+{
+  "directory": "/Users/proton/Coding/cpp_projects/cli_tetris/build",
+  "command": "/Library/Developer/CommandLineTools/usr/bin/c++  -I/Users/proton/Coding/cpp_projects/cli_tetris/include -I/usr/local/Cellar/sdl2/2.0.12_1/include/SDL2  -WALL -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk -std=gnu++17 -o CMakeFiles/SDL2Test.dir/SDL2_test.cpp.o -c /Users/proton/Coding/cpp_projects/cli_tetris/SDL2_test.cpp",
+  "file": "/Users/proton/Coding/cpp_projects/cli_tetris/SDL2_test.cpp"
+}
+]
