@@ -1,10 +1,10 @@
 // Using SDL and standard IO
+#include "SDL.h"
 #include "SDL_error.h"
 #include "SDL_events.h"
 #include "SDL_surface.h"
 #include "SDL_video.h"
-#include <SDL.h>
-#include <stdio.h>
+#include <iostream>
 
 // Screen dimension constants
 const int SCREEN_WIDTH = 640;
@@ -22,7 +22,7 @@ SDL_Window *gWindow{nullptr};
 // the surface contained by the window
 SDL_Surface *gScreenSurface{nullptr};
 // the image we will load and show on the screen
-SDL_Surface *gHelloWorld{nullptr};
+SDL_Surface *gXOut{nullptr};
 
 bool init() {
   // Initialization flag
@@ -30,7 +30,8 @@ bool init() {
 
   // Initialize SDL
   if (SDL_Init(SDL_INIT_VIDEO) < 0) {
-    printf("SDL could not initialize! SDL_Error: %s\n", SDL_GetError());
+    std::cout << "SDL could not initialize! SDL_Error: " << SDL_GetError()
+              << std::endl;
     success = false;
   } else {
     // Create window
@@ -38,7 +39,8 @@ bool init() {
                                SDL_WINDOWPOS_UNDEFINED, SCREEN_WIDTH,
                                SCREEN_HEIGHT, SDL_WINDOW_SHOWN);
     if (gWindow == NULL) {
-      printf("Window could not be created! SDL_Error: %s\n", SDL_GetError());
+      std::cout << "Window could not be created! SDL_Error: " << SDL_GetError()
+                << std::endl;
       success = false;
     } else {
       // Get window surface
@@ -53,10 +55,10 @@ bool loadMedia() {
   bool success = true;
 
   // Load splash image
-  gHelloWorld = SDL_LoadBMP("hello_world.bmp");
-  if (gHelloWorld == NULL) {
-    printf("Unable to load image %s! SDL Error: %s\n", "hello_world.bmp",
-           SDL_GetError());
+  gXOut = SDL_LoadBMP("x.bmp");
+  if (gXOut == NULL) {
+    std::cout << "Unable to load image x.bmp! SDL Error: " << SDL_GetError()
+              << std::endl;
     success = false;
   }
   return success;
@@ -64,8 +66,8 @@ bool loadMedia() {
 
 void close() {
   // Delete surface
-  SDL_FreeSurface(gHelloWorld);
-  gHelloWorld = NULL;
+  SDL_FreeSurface(gXOut);
+  gXOut = NULL;
 
   // Destroy window
   SDL_DestroyWindow(gWindow);
@@ -79,18 +81,30 @@ int main(int argc, char *args[]) {
 
   // Start up SDL and create window
   if (!init()) {
-    printf("Failed to initialize!\n");
+    std::cout << "Failed to initialize!\n";
   } else {
     // Load media
     if (!loadMedia()) {
-      printf("Failed to load media!\n");
+      std::cout << "Failed to load media!\n";
     } else {
-      // Apply the image
-      SDL_BlitSurface(gHelloWorld, NULL, gScreenSurface, NULL);
-      // update the surface
-      SDL_UpdateWindowSurface(gWindow);
-      // wait two seconds
-      SDL_Delay(2000);
+      // main loop flag
+      bool quit = false;
+      // event handler
+      SDL_Event e;
+
+      while (!quit) {
+        // handle events on queue
+        while (SDL_PollEvent(&e) != 0) {
+          // user requests quit
+          if (e.type == SDL_QUIT) {
+            quit = true;
+          }
+        }
+        // Apply the image
+        SDL_BlitSurface(gXOut, NULL, gScreenSurface, NULL);
+        // update the surface
+        SDL_UpdateWindowSurface(gWindow);
+      }
     }
   }
   // clean up and close
