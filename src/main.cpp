@@ -1,9 +1,6 @@
 // Using SDL and standard IO
 #include "SDL.h"
-#include "SDL_error.h"
-#include "SDL_events.h"
-#include "SDL_surface.h"
-#include "SDL_video.h"
+#include "SDL_image.h"
 #include <iostream>
 #include <string>
 
