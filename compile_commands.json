@@ -1,7 +1,0 @@
-[
-{
-  "directory": "/Users/proton/Coding/cpp_projects/cli_tetris/build",
-  "command": "/Library/Developer/CommandLineTools/usr/bin/c++    -Wall -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk -F/Library/Frameworks  -std=gnu++17 -o CMakeFiles/sdl2_practice.dir/src/main.cpp.o -c /Users/proton/Coding/cpp_projects/cli_tetris/src/main.cpp",
-  "file": "/Users/proton/Coding/cpp_projects/cli_tetris/src/main.cpp"
-}
-]
