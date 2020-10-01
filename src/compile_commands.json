@@ -1,7 +1,7 @@
 [
 {
-  "directory": "/Users/proton/Coding/cpp_projects/cli_tetris/build",
-  "command": "/Library/Developer/CommandLineTools/usr/bin/c++  -I/Users/proton/Coding/cpp_projects/cli_tetris/include -I/Library/Frameworks/SDL2.framework/Headers -I/Library/Frameworks/SDL2_image.framework/Headers  -Wall -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk -F/Library/Frameworks  -std=gnu++17 -o CMakeFiles/sdl2-image-sample.dir/src/main.cpp.o -c /Users/proton/Coding/cpp_projects/cli_tetris/src/main.cpp",
-  "file": "/Users/proton/Coding/cpp_projects/cli_tetris/src/main.cpp"
+  "directory": "/Users/proton/Coding/cpp_projects/SFML_test/build",
+  "command": "/Library/Developer/CommandLineTools/usr/bin/c++  -isystem /usr/local/include  -Wall -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk -std=gnu++17 -o CMakeFiles/LilyTin.dir/src/Main.cpp.o -c /Users/proton/Coding/cpp_projects/SFML_test/src/Main.cpp",
+  "file": "/Users/proton/Coding/cpp_projects/SFML_test/src/Main.cpp"
 }
 ]
