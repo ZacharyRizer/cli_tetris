@@ -8,6 +8,10 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS 1)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall")
 
+# Where to place lib and binaries
+set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/lib)
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/bin)
+
 # Find version 2.5.0 of the SFML library on this computer,
 # If the package can't be found, terminate the script
 find_package(SFML 2.5 COMPONENTS graphics REQUIRED)
